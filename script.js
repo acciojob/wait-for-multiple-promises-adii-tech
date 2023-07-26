@@ -13,8 +13,8 @@
 Promise.all(promisesArray)
       .then((results) => {
         // Get the loading row element and remove it
-        const loadingRow = document.getElementById("loadingRow");
-        loadingRow.parentNode.removeChild(loadingRow);
+        const loadingRow = document.getElementById("loading");
+        loadingRow.parentNode.removeChild(loading);
 
         // Populate the table with the results
         const table = document.querySelector("table");
@@ -29,9 +29,11 @@ Promise.all(promisesArray)
 		   // Calculate and insert the Total row
         const totalRow = table.insertRow();
         const totalCell = totalRow.insertCell(0);
+		  const totalTimeCell = totalRow.insertCell(1);
         const totalTime = results.reduce((acc, curr) => acc + curr, 0);
-        totalCell.colSpan = 2;
-        totalCell.innerHTML = `Total ${totalTime.toFixed(3)} seconds`;
+        // totalCell.colSpan = 2
+        totalCell.innerHTML = `Total`;
+		 totalTimeCell.innerHTML = `${totalTime.toFixed(3)}`;
       })
       .catch((error) => {
         console.error("Error occurred:", error);
