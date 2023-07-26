@@ -1,9 +1,9 @@
 //your JS code here. If required.
  function getRandomPromise() {
-      const randomTime = Math.floor(Math.random() * 3000) + 1000; // Random time between 1000ms and 3000ms
+      const randomTime = Math.floor(Math.random() * 2000) + 1000; // Random time between 1000ms and 3000ms
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(randomTime / 1000); // Resolve with the time taken in seconds
+          resolve(randomTime / 1000); // Resolve wi th the time taken in seconds
         }, randomTime);
       });
     }
@@ -15,7 +15,7 @@ Promise.all(promisesArray)
         // Get the loading row element and remove it
         const loadingRow = document.getElementById("loading");
         loadingRow.parentNode.removeChild(loading);
-
+ 
         // Populate the table with the results
         const table = document.querySelector("table");
         results.forEach((time, index) => {
